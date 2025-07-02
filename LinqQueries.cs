@@ -55,4 +55,14 @@ public class LinqQueries
 
         PrintBooks(books);
     }
+
+    public bool AllBooksHaveStatus()
+    {
+        return booksCollection.All(book => book.Status != string.Empty);
+    }
+
+    public bool AnyBookReleasedInSpecificYear(int year)
+    {
+        return booksCollection.Any(book => book.PublishedDate.Year == year);
+    }
 }
