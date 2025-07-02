@@ -14,24 +14,24 @@ public class LinqQueries
         ) ?? [];
     }
 
-    public IEnumerable<Book> GetAllBooks()
+    public void GetAllBooks()
     {
-        return booksCollection;
+        PrintBooks(booksCollection);
     }
 
-    public void PrintBooks()
+    public static void PrintBooks(IEnumerable<Book> books)
     {
         string textFormat = "{0, -60} {1, 15} {2, 20}";
         Console.WriteLine($"{textFormat}\n", "Title", "Pages", "Published Date");
-        foreach (var book in booksCollection)
+        foreach (var book in books)
         {
             Console.WriteLine($"{textFormat}", book.Title, book.PageCount, book.PublishedDate.ToShortDateString());
         }
     }
 
-    public IEnumerable<Book> GetBooksAfterYear(int year)
+    public void GetBooksAfterYear(int year)
     {
-        return booksCollection.Where(book => book.PublishedDate.Year > year);
+        PrintBooks(booksCollection.Where(book => book.PublishedDate.Year > year));
     }
 
 
