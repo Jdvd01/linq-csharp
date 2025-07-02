@@ -16,3 +16,6 @@ LinqQueries queries = new();
 // Check if any book was released in a specific year
 // bool anyBookReleasedInYear = queries.AnyBookReleasedInSpecificYear(2009);
 // Console.WriteLine($"Any book released in 2015? - {anyBookReleasedInYear}");
+
+// Get books by category
+// queries.GetBooksByCategory("Python");

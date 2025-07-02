@@ -65,4 +65,13 @@ public class LinqQueries
     {
         return booksCollection.Any(book => book.PublishedDate.Year == year);
     }
+
+    public void GetBooksByCategory(string category)
+    {
+        IEnumerable<Book> books = booksCollection
+            .Where(book => book.Categories.Contains(category, StringComparer.OrdinalIgnoreCase));
+
+        PrintBooks(books);
+    }
+    
 }
